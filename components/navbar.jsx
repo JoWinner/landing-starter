@@ -34,22 +34,22 @@ export default function Header() {
       isBordered={false}
       isBlurred={true}
       // shouldHideOnScroll
-      classNames={{
-        item: [
-          "flex",
-          "relative",
-          "h-full",
-          "items-center",
-          "data-[active=true]:after:content-['']",
-          "data-[active=true]:after:absolute",
-          "data-[active=true]:after:bottom-0",
-          "data-[active=true]:after:left-0",
-          "data-[active=true]:after:right-0",
-          "data-[active=true]:after:h-[2px]",
-          "data-[active=true]:after:rounded-[2px]",
-          "data-[active=true]:after:bg-primary",
-        ],
-      }}
+      // classNames={{
+      //   item: [
+      //     "flex",
+      //     "relative",
+      //     "h-full",
+      //     "items-center",
+      //     "data-[active=true]:after:content-['']",
+      //     "data-[active=true]:after:absolute",
+      //     "data-[active=true]:after:bottom-0",
+      //     "data-[active=true]:after:left-0",
+      //     "data-[active=true]:after:right-0",
+      //     "data-[active=true]:after:h-[2px]",
+      //     "data-[active=true]:after:rounded-[2px]",
+      //     "data-[active=true]:after:bg-primary",
+      //   ],
+      // }}
     >
       {/* Content shows on smaller screens and hides on larger screens */}
       <NavbarContent className="sm:hidden pr-3" justify="start">
@@ -77,10 +77,11 @@ export default function Header() {
 
       <NavbarContent className="hidden sm:flex gap-4" justify="end">
         {menuItems.map((item, index) => (
-          <NavbarItem key={index} isActive={true}>
+          <NavbarItem key={index} isActive={false}>
             <Link
               href={item.route}
               aria-current={router.pathname === item.route}
+              className="text-slate-50"
             >
               {item.label}
             </Link>
@@ -90,7 +91,7 @@ export default function Header() {
           <ThemeToggle />
         </NavbarItem>
       </NavbarContent>
-      {/*=================================  */}
+      {/*=================================*/}
 
       <NavbarMenu>
         {menuItems.map((item, index) => (
