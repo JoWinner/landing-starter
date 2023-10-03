@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 import {
   Navbar,
@@ -10,7 +11,6 @@ import {
   NavbarMenuToggle,
   NavbarMenuItem,
   NavbarItem,
-  Link,
   Button,
 } from "@nextui-org/react";
 
@@ -53,10 +53,12 @@ export default function Header() {
     >
       {/* Content shows on smaller screens and hides on larger screens */}
       <NavbarContent className="sm:hidden pr-3" justify="start">
-        <NavbarBrand>
-          <Logo />
-          <p className="font-bold text-inherit">COLOGI</p>
-        </NavbarBrand>
+      <Link href="/" passHref>
+          <NavbarBrand>
+            <Logo />
+            <h2 className="font-bold text-inherit">COLOGI</h2>
+          </NavbarBrand>
+        </Link>
       </NavbarContent>
 
       <NavbarContent className="sm:hidden" justify="center">
@@ -69,10 +71,12 @@ export default function Header() {
 
       {/*Content hides on smaller screens and shows on larger screens */}
       <NavbarContent className="hidden sm:flex gap-4" justify="start">
-        <NavbarBrand>
-          <Logo />
-          <p className="font-bold text-inherit">COLOGI</p>
-        </NavbarBrand>
+        <Link href="/" passHref>
+          <NavbarBrand>
+            <Logo />
+            <h2 className="font-bold text-inherit">COLOGI</h2>
+          </NavbarBrand>
+        </Link>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="end">
